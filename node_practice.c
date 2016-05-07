@@ -34,6 +34,27 @@ int doesExist(struct node_entry *head, int number){
    return exists;
 }
 
+void deleteNode(struct node_entry *head, int number)
+{
+    struct node_entry *prev;
+    struct node_entry *curr;
+    prev = head;
+    curr = head;
+    if (doesExist(head,number) == 1){
+	while(curr->next != NULL){
+	    if (curr->entry == number){
+		while(head->next != NULL){
+		    if(prev->next == curr) break;
+		    prev = prev->next;
+		}
+		prev->next = curr->next;
+		break;
+	    }
+	    curr = curr->next;
+	}
+    }
+}
+
 int main()
 {
     struct node_entry head = create_node(0);
@@ -41,6 +62,8 @@ int main()
     struct node_entry second = create_node(2);
     head.next = &first;
     first.next = &second;
+    traverse_node(&head);
+    deleteNode(&head,1);
     traverse_node(&head);
     if (doesExist(&head,5) == 1 ){
         printf("Exists\n");
