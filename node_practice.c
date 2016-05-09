@@ -1,16 +1,18 @@
 #include<stdio.h>
-
+#include<stdlib.h>
 
 struct node_entry{
     int entry;
     struct node_entry *next;
 };
 
-struct node_entry create_node(int number){
+struct node_entry *create_node(int number){
     struct node_entry singlenode;
     singlenode.entry = number;
     singlenode.next = NULL;
-    return singlenode;
+	struct node_entry *ret = malloc(sizeof(struct node_entry));
+    *ret = singlenode;
+    return ret;
 }
 
 void traverse_node (struct node_entry *head){
@@ -68,19 +70,20 @@ void insertAfter (struct node_entry *head, struct node_entry *insert, int number
 	}
 }
 
+
 int main()
 {
-    struct node_entry head = create_node(0);
-    struct node_entry first = create_node(1);
-    struct node_entry second = create_node(2);
-    head.next = &first;
-    first.next = &second;
-    traverse_node(&head);
-    deleteNode(&head,1);
-	traverse_node(&head);
-	insertAfter(&head,&first,0);
-	traverse_node(&head);
-    if (doesExist(&head,5) == 1 ){
+    struct node_entry *head = create_node(0);
+    struct node_entry *first = create_node(1);
+    struct node_entry *second = create_node(2);
+    head->next = first;
+    first->next = second;
+    traverse_node(head);
+    deleteNode(head,1);
+	traverse_node(head);
+	insertAfter(head,first,0);
+	traverse_node(head);
+    if (doesExist(head,5) == 1 ){
         printf("Exists\n");
     }
     else{
