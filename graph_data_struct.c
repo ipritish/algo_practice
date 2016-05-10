@@ -80,6 +80,17 @@ void printGraph(struct Graph* graph)
         printf("\n");
     }
 }
+
+void bfs(struct Graph *graph,int startPoint)
+{
+	int visited[graph->V];
+	for (int i=0; i<graph->V; i++)
+	{
+		visited[i] = -1;
+	}
+	struct AdjListNode* startPoint = graph->array[v].head;
+	
+}
  
 // Driver program to test above functions
 int main()
