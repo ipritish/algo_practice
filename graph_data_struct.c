@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
- 
+
+#define MAX 10000
+int queue[MAX];
+
+void enque(int vertex){
+}
+
+int deque(){
+	return 0;
+}
 // A structure to represent an adjacency list node
 struct AdjListNode
 {
@@ -81,14 +90,14 @@ void printGraph(struct Graph* graph)
     }
 }
 
-void bfs(struct Graph *graph,int startPoint)
+void bfs(struct Graph *graph,int startNode)
 {
 	int visited[graph->V];
 	for (int i=0; i<graph->V; i++)
 	{
 		visited[i] = -1;
 	}
-	struct AdjListNode* startPoint = graph->array[v].head;
+	struct AdjListNode* startPoint = graph->array[startNode].head;
 	
 }
  
