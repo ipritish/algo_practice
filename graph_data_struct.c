@@ -1,13 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 10000
-int queue[MAX];
+struct queue{
+	int vertex;
+	struct queue* next;
+};
 
-void enque(int vertex){
+struct queue *newElement(int vertex){
+	struct queue *element = malloc(sizeof(struct queue));
+	element->vertex = vertex;
+	element->next = NULL;
+	return element;
 }
 
-int deque(){
+void enque(struct queue* head, int vertex){
+	while(head->next != NULL){
+		head = head->next;
+	}
+	head->next = newElement(vertex); 
+}
+
+int deque(struct queue* head){
+	//return head->next;
 	return 0;
 }
 // A structure to represent an adjacency list node
