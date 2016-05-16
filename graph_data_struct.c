@@ -119,18 +119,36 @@ void bfs(struct Graph *graph,int startNode)
 int main()
 {
     // create the graph given in above fugure
-    int V = 5;
-    struct Graph* graph = createGraph(V);
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 4);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 1, 3);
-    addEdge(graph, 1, 4);
-    addEdge(graph, 2, 3);
-    addEdge(graph, 3, 4);
+	int t;
+	scanf("%d",&t);
+    //int V = 5;
+    //struct Graph* graph = createGraph(V);
+    //addEdge(graph, 0, 1);
+    //addEdge(graph, 0, 4);
+    //addEdge(graph, 1, 2);
+    //addEdge(graph, 1, 3);
+    //addEdge(graph, 1, 4);
+    //addEdge(graph, 2, 3);
+    //addEdge(graph, 3, 4);
  
     // print the adjacency list representation of the above graph
-    printGraph(graph);
+    //printGraph(graph);
+	while(t--){
+		int n;
+		int m;
+		scanf("%d",&n);
+		scanf("%d",&m);
+		struct Graph* graph = createGraph(n);
+		for (int i=0; i<m; i++){
+			int x,y;
+			scanf("%d",&x);
+			scanf("%d",&y);
+			x--;
+			y--;
+			addEdge(graph,x,y);
+		}
+		printGraph(graph);
+	}
  
     return 0;
 }
